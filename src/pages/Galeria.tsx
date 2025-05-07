@@ -9,11 +9,12 @@ import {
   CarouselNext
 } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 
 const Galeria = () => {
   const [isMobile, setIsMobile] = useState(false);
+  const [autoplayInterval, setAutoplayInterval] = useState<ReturnType<typeof setInterval> | null>(null);
+  const [api, setApi] = useState<any>(null);
 
   useEffect(() => {
     const checkIfMobile = () => {
@@ -27,6 +28,27 @@ const Galeria = () => {
       window.removeEventListener('resize', checkIfMobile);
     };
   }, []);
+
+  useEffect(() => {
+    if (!api) return;
+
+    // Clear any existing interval
+    if (autoplayInterval) {
+      clearInterval(autoplayInterval);
+    }
+
+    // Start autoplay - scroll to next slide every 3 seconds
+    const interval = setInterval(() => {
+      api.scrollNext();
+    }, 3000);
+
+    setAutoplayInterval(interval);
+
+    // Cleanup function
+    return () => {
+      if (interval) clearInterval(interval);
+    };
+  }, [api]);
 
   const images = [
     {
@@ -115,6 +137,7 @@ const Galeria = () => {
                 align: "start",
                 loop: true,
               }}
+              setApi={setApi}
               className="w-full"
             >
               <CarouselContent>
@@ -150,7 +173,7 @@ const Galeria = () => {
                 <img 
                   src={image.src} 
                   alt={image.alt} 
-                  className="w-full h-64 object-cover transition-transform duration-300 hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
                 />
               </div>
             ))}
