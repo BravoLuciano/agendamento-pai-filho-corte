@@ -1,8 +1,33 @@
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { 
+  Carousel, 
+  CarouselContent, 
+  CarouselItem, 
+  CarouselPrevious, 
+  CarouselNext
+} from "@/components/ui/carousel";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { useEffect, useState } from "react";
 
 const Galeria = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkIfMobile();
+    window.addEventListener('resize', checkIfMobile);
+    
+    return () => {
+      window.removeEventListener('resize', checkIfMobile);
+    };
+  }, []);
+
   const images = [
     {
       src: "/lovable-uploads/d89b6984-d2db-4cdf-8bb2-8dc4f722bdfc.png",
@@ -75,12 +100,53 @@ const Galeria = () => {
         </div>
       </section>
 
-      {/* Galeria de Fotos */}
+      {/* Galeria de Fotos com Carrossel */}
       <section className="py-20 px-4 bg-barbershop-lightgray hero-pattern">
         <div className="container mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {images.map((image, index) => (
-              <div key={index} className="overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+          <div className="mb-12">
+            <h2 className="font-barber text-4xl mb-4 text-center">NOSSOS MOMENTOS</h2>
+            <div className="h-1 w-20 bg-barbershop-red mx-auto"></div>
+          </div>
+
+          {/* Carrossel Principal */}
+          <div className="mx-auto max-w-5xl">
+            <Carousel
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+              className="w-full"
+            >
+              <CarouselContent>
+                {images.map((image, index) => (
+                  <CarouselItem key={index} className={isMobile ? "basis-full" : "basis-1/2 md:basis-1/3"}>
+                    <Card className="border-none">
+                      <CardContent className="flex aspect-square items-center justify-center p-2">
+                        <img 
+                          src={image.src} 
+                          alt={image.alt} 
+                          className="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 hover:scale-105"
+                        />
+                      </CardContent>
+                    </Card>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <div className="flex items-center justify-center gap-4 mt-8">
+                <CarouselPrevious 
+                  className="relative static transform-none bg-barbershop-black text-white hover:bg-barbershop-red hover:text-white" 
+                />
+                <CarouselNext 
+                  className="relative static transform-none bg-barbershop-black text-white hover:bg-barbershop-red hover:text-white" 
+                />
+              </div>
+            </Carousel>
+          </div>
+
+          {/* Grade Complementar de Imagens */}
+          <div className="mt-16 hidden md:grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {images.slice(0, 8).map((image, index) => (
+              <div key={`grid-${index}`} className="overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow">
                 <img 
                   src={image.src} 
                   alt={image.alt} 
