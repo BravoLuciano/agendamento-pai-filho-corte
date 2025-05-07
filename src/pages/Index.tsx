@@ -54,7 +54,7 @@ const Index = () => {
             </p>
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
               <WhatsAppButton />
-              <Button variant="outline" className="border-white text-white hover:bg-white hover:text-barbershop-black" asChild>
+              <Button className="bg-barbershop-red hover:bg-red-700 text-white" asChild>
                 <Link to="/servicos">
                   Ver Serviços <ArrowRight size={16} className="ml-2" />
                 </Link>
