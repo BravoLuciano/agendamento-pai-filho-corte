@@ -1,5 +1,5 @@
 
-import { Phone, Mail, MapPin, Instagram, WhatsApp } from 'lucide-react';
+import { Phone, Mail, MapPin, Instagram, MessageSquare } from 'lucide-react';
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -38,7 +38,7 @@ const Contato = () => {
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
                   <div className="bg-barbershop-red rounded-full p-3">
-                    <WhatsApp size={24} className="text-white" />
+                    <MessageSquare size={24} className="text-white" />
                   </div>
                   <div>
                     <h3 className="font-barber text-xl mb-1">WHATSAPP</h3>
@@ -157,7 +157,7 @@ const Contato = () => {
                 rel="noreferrer"
                 className="bg-green-600 hover:bg-green-700 text-white py-3 px-6 rounded-lg flex items-center justify-center space-x-2 w-full transition-colors"
               >
-                <WhatsApp size={20} />
+                <MessageSquare size={20} />
                 <span>Agendar via WhatsApp</span>
               </a>
             </div>

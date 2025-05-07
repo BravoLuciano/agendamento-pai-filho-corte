@@ -1,6 +1,6 @@
 
 import { Link } from 'react-router-dom';
-import { Instagram, Phone, WhatsApp } from 'lucide-react';
+import { Instagram, Phone, MessageSquare } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -41,7 +41,7 @@ const Footer = () => {
                 rel="noreferrer"
                 className="flex items-center space-x-2 hover:text-barbershop-red transition-colors"
               >
-                <WhatsApp size={18} />
+                <MessageSquare size={18} />
                 <span>(19) 99295-3522</span>
               </a>
               <a 

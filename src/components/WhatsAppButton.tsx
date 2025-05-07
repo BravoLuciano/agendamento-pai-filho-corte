@@ -1,5 +1,5 @@
 
-import { WhatsApp } from 'lucide-react';
+import { MessageSquare } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 
 interface WhatsAppButtonProps {
@@ -27,7 +27,7 @@ const WhatsAppButton = ({ service, className }: WhatsAppButtonProps) => {
       onClick={openWhatsApp}
       className={`bg-green-600 hover:bg-green-700 text-white flex items-center space-x-2 ${className}`}
     >
-      <WhatsApp size={20} />
+      <MessageSquare size={20} />
       <span>Agendar via WhatsApp</span>
     </Button>
   );

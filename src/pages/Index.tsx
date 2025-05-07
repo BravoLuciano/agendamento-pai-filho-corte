@@ -109,7 +109,7 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             <div className="bg-barbershop-lightgray p-8 rounded-lg text-center">
               <div className="bg-barbershop-red text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <WhatsApp size={32} />
+                <MessageSquare size={32} />
               </div>
               <h3 className="font-barber text-xl mb-2">ENTRE EM CONTATO</h3>
               <p className="text-gray-700">
