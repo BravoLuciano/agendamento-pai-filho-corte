@@ -10,6 +10,7 @@ import Galeria from "./pages/Galeria";
 import Sobre from "./pages/Sobre";
 import Contato from "./pages/Contato";
 import Agendar from "./pages/Agendar";
+import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -27,6 +28,7 @@ const App = () => (
           <Route path="/sobre" element={<Sobre />} />
           <Route path="/contato" element={<Contato />} />
           <Route path="/agendar" element={<Agendar />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
