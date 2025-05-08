@@ -2,7 +2,6 @@
 import { Phone, Mail, MapPin, Instagram, MessageSquare } from 'lucide-react';
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import LocationMap from "@/components/LocationMap";
 
 const Contato = () => {
   return (
@@ -26,7 +25,7 @@ const Contato = () => {
         </div>
       </section>
 
-      {/* Mapa e Informações de Contato */}
+      {/* Informações de Contato */}
       <section className="py-20 px-4 bg-white">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-7xl mx-auto">
@@ -120,12 +119,21 @@ const Contato = () => {
                 </div>
               </div>
               
-              <div className="mt-8 p-4 bg-barbershop-lightgray rounded-lg">
+              <div className="mt-8 p-6 bg-barbershop-lightgray rounded-lg shadow-md border border-gray-200">
                 <h3 className="font-barber text-xl mb-2">COMO CHEGAR</h3>
-                <p className="text-gray-700 mb-4">
+                <p className="text-gray-700">
                   Estamos localizados em uma área de fácil acesso no bairro Parque Gramado em Americana.
-                  Use o mapa ao lado para visualizar nossa localização exata.
+                  Use o aplicativo de mapas da sua preferência para obter direções até nosso endereço.
                 </p>
+                <a 
+                  href="https://maps.app.goo.gl/VDMaSoxkEPKpn84X6" 
+                  target="_blank" 
+                  rel="noreferrer"
+                  className="mt-4 inline-flex items-center text-barbershop-red hover:text-barbershop-black transition-colors"
+                >
+                  <MapPin size={16} className="mr-1" />
+                  Abrir no Google Maps
+                </a>
               </div>
             </div>
 
@@ -175,10 +183,18 @@ const Contato = () => {
                 </a>
               </div>
 
-              {/* Mapa */}
-              <div>
-                <h3 className="font-barber text-2xl mb-4">NOSSA LOCALIZAÇÃO</h3>
-                <LocationMap />
+              <div className="bg-barbershop-lightgray p-8 rounded-lg shadow-lg">
+                <h2 className="font-barber text-2xl mb-4">VISITE-NOS</h2>
+                <p className="text-gray-700 mb-4">
+                  Estamos ansiosos para recebê-lo em nossa barbearia. Venha conhecer nosso espaço e experimentar nossos serviços de qualidade.
+                </p>
+                <div className="flex items-center justify-center mt-6">
+                  <img 
+                    src="/lovable-uploads/7c3b7914-5c20-478b-9952-2cea1737141c.png" 
+                    alt="Barbearia Pai e Filho" 
+                    className="rounded-lg shadow-md w-full max-w-sm mx-auto" 
+                  />
+                </div>
               </div>
             </div>
           </div>
