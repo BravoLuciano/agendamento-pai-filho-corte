@@ -2,6 +2,7 @@
 import { Phone, Mail, MapPin, Instagram, MessageSquare } from 'lucide-react';
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import LocationMap from "@/components/LocationMap";
 
 const Contato = () => {
   return (
@@ -25,10 +26,11 @@ const Contato = () => {
         </div>
       </section>
 
-      {/* Informações de Contato */}
+      {/* Mapa e Informações de Contato */}
       <section className="py-20 px-4 bg-white">
         <div className="container mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-7xl mx-auto">
+            
             <div>
               <h2 className="font-barber text-3xl mb-6">FALE CONOSCO</h2>
               <p className="text-gray-700 mb-8">
@@ -107,7 +109,9 @@ const Contato = () => {
                   <div>
                     <h3 className="font-barber text-xl mb-1">ENDEREÇO</h3>
                     <p className="text-gray-700">
-                      A definir
+                      Rua Alfredo Spindola De Melo, 265<br />
+                      Bairro Parque Gramado<br />
+                      Americana - SP
                     </p>
                     <p className="text-gray-600 text-sm">
                       Venha nos fazer uma visita
@@ -115,51 +119,67 @@ const Contato = () => {
                   </div>
                 </div>
               </div>
+              
+              <div className="mt-8 p-4 bg-barbershop-lightgray rounded-lg">
+                <h3 className="font-barber text-xl mb-2">COMO CHEGAR</h3>
+                <p className="text-gray-700 mb-4">
+                  Estamos localizados em uma área de fácil acesso no bairro Parque Gramado em Americana.
+                  Use o mapa ao lado para visualizar nossa localização exata.
+                </p>
+              </div>
             </div>
 
-            <div className="bg-barbershop-lightgray p-8 rounded-lg shadow-lg">
-              <h2 className="font-barber text-3xl mb-6">HORÁRIO DE FUNCIONAMENTO</h2>
-              
-              <div className="space-y-4 mb-8">
-                <div className="flex justify-between border-b border-gray-300 pb-2">
-                  <span className="font-semibold">Segunda-feira</span>
-                  <span>09:00 - 19:00</span>
+            <div className="space-y-6">
+              <div className="bg-barbershop-lightgray p-8 rounded-lg shadow-lg mb-6">
+                <h2 className="font-barber text-3xl mb-6">HORÁRIO DE FUNCIONAMENTO</h2>
+                
+                <div className="space-y-4 mb-8">
+                  <div className="flex justify-between border-b border-gray-300 pb-2">
+                    <span className="font-semibold">Segunda-feira</span>
+                    <span>09:00 - 19:00</span>
+                  </div>
+                  <div className="flex justify-between border-b border-gray-300 pb-2">
+                    <span className="font-semibold">Terça-feira</span>
+                    <span>09:00 - 19:00</span>
+                  </div>
+                  <div className="flex justify-between border-b border-gray-300 pb-2">
+                    <span className="font-semibold">Quarta-feira</span>
+                    <span>09:00 - 19:00</span>
+                  </div>
+                  <div className="flex justify-between border-b border-gray-300 pb-2">
+                    <span className="font-semibold">Quinta-feira</span>
+                    <span>09:00 - 19:00</span>
+                  </div>
+                  <div className="flex justify-between border-b border-gray-300 pb-2">
+                    <span className="font-semibold">Sexta-feira</span>
+                    <span>09:00 - 19:00</span>
+                  </div>
+                  <div className="flex justify-between border-b border-gray-300 pb-2">
+                    <span className="font-semibold">Sábado</span>
+                    <span>09:00 - 18:00</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="font-semibold">Domingo</span>
+                    <span>Fechado</span>
+                  </div>
                 </div>
-                <div className="flex justify-between border-b border-gray-300 pb-2">
-                  <span className="font-semibold">Terça-feira</span>
-                  <span>09:00 - 19:00</span>
-                </div>
-                <div className="flex justify-between border-b border-gray-300 pb-2">
-                  <span className="font-semibold">Quarta-feira</span>
-                  <span>09:00 - 19:00</span>
-                </div>
-                <div className="flex justify-between border-b border-gray-300 pb-2">
-                  <span className="font-semibold">Quinta-feira</span>
-                  <span>09:00 - 19:00</span>
-                </div>
-                <div className="flex justify-between border-b border-gray-300 pb-2">
-                  <span className="font-semibold">Sexta-feira</span>
-                  <span>09:00 - 19:00</span>
-                </div>
-                <div className="flex justify-between border-b border-gray-300 pb-2">
-                  <span className="font-semibold">Sábado</span>
-                  <span>09:00 - 18:00</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="font-semibold">Domingo</span>
-                  <span>Fechado</span>
-                </div>
+
+                <a 
+                  href="https://wa.me/5519992953522?text=Olá!%20Gostaria%20de%20agendar%20um%20horário%20na%20Barbearia%20Pai%20e%20Filho."
+                  target="_blank" 
+                  rel="noreferrer"
+                  className="bg-green-600 hover:bg-green-700 text-white py-3 px-6 rounded-lg flex items-center justify-center space-x-2 w-full transition-colors"
+                >
+                  <MessageSquare size={20} />
+                  <span>Agendar via WhatsApp</span>
+                </a>
               </div>
 
-              <a 
-                href="https://wa.me/5519992953522?text=Olá!%20Gostaria%20de%20agendar%20um%20horário%20na%20Barbearia%20Pai%20e%20Filho."
-                target="_blank" 
-                rel="noreferrer"
-                className="bg-green-600 hover:bg-green-700 text-white py-3 px-6 rounded-lg flex items-center justify-center space-x-2 w-full transition-colors"
-              >
-                <MessageSquare size={20} />
-                <span>Agendar via WhatsApp</span>
-              </a>
+              {/* Mapa */}
+              <div>
+                <h3 className="font-barber text-2xl mb-4">NOSSA LOCALIZAÇÃO</h3>
+                <LocationMap />
+              </div>
             </div>
           </div>
         </div>
